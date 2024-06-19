@@ -7,6 +7,7 @@
 #include <string>
 
 #include "window/ge_window.hpp"
+#include "renderer/ge_renderer.hpp"
 
 class GLEngine
 {
@@ -17,4 +18,5 @@ public:
     void Cleanup();
 private:
     GEWindow* window;
+    GERenderer* renderer;
 };

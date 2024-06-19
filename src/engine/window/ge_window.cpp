@@ -37,7 +37,7 @@ void GEWindow::Show()
 
 void GEWindow::Clear()
 {
-    glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+    glClear(GL_COLOR_BUFFER_BIT);
 }
 
 void GEWindow::Update()
@@ -57,4 +57,5 @@ void GEWindow::framesizecallback(GLFWwindow *window, int w, int h)
     GEWindow* win = reinterpret_cast<GEWindow*>(glfwGetWindowUserPointer(window));
     win->width = (uint32_t) w;
     win->height = (uint32_t) h;
+    glViewport(0, 0, w, h);
 }

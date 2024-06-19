@@ -3,6 +3,7 @@
 GLEngine::GLEngine(uint32_t width, uint32_t height, const std::string &title)
 {
     window = new GEWindow(width, height, title);
+    renderer = new GERenderer();
 }
 
 void GLEngine::Run()
@@ -11,6 +12,8 @@ void GLEngine::Run()
     window->SetClearColor(0.5f, 0.5f, 0.5f, 0.5f);
     while(!window->IsCloseButtonPressed()) {
         window->Clear();
+        renderer->Update();
+        renderer->Render(window->GetWidth(), window->GetHeight());
         window->Update();
     }
 }
