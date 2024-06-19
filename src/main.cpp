@@ -1,7 +1,20 @@
 #include <iostream>
+#include <stdexcept>
+#include <cstdlib>
+
+#include "engine/ge.hpp"
 
 int main(void) {
-    std::cout << "Project Setup!" << std::endl;
+    try {
+        GLEngine engine(GE_STD_WINDOW_WIDTH, GE_STD_WINDOW_HEIGHT, "GLEngine");
+        engine.Run();
+        engine.Cleanup();
+    } catch (const std::exception& e) {
+        std::cerr << e.what() << std::endl;
+        std::cin.get();
+        return EXIT_FAILURE;
+    }
 
-    return 0;
+    std::cin.get();
+    return EXIT_SUCCESS;
 }

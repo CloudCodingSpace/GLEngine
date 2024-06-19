@@ -2,8 +2,7 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "label": "TestBench & GLEngine Build",
-            "type":"cppbuild",
+            "label": "Build",
             "command": "${workspaceFolder}/build.bat",
             "group": {
                 "kind": "build",
