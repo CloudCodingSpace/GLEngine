@@ -22,11 +22,15 @@ public:
     void Clear();
     void Update();
 
+    void ShowFPS();
+
     void Cleanup();
 private:
     GLFWwindow* window;
     uint32_t width, height;
     std::string title;
+    double lastTime;
+    int frames;
 
     static void framesizecallback(GLFWwindow* window, int w, int h);
 };

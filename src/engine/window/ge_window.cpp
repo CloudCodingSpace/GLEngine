@@ -5,6 +5,8 @@ GEWindow::GEWindow(uint32_t width, uint32_t height, const std::string &title)
     this->width = width;
     this->height = height;
     this->title = title;
+    this->lastTime = 0;
+    this->frames = 0;
 
     if(!glfwInit()) {
         throw std::runtime_error("Failed to init GLFW!");
@@ -44,6 +46,22 @@ void GEWindow::Update()
 {
     glfwSwapBuffers(window);
     glfwPollEvents();
+}
+
+void GEWindow::ShowFPS()
+{
+    double crntTime = 0, elapsedTime = 0;
+    crntTime = glfwGetTime();
+    elapsedTime = crntTime - lastTime;
+
+    if(elapsedTime > 1/5) {
+        lastTime = crntTime;
+        double fps = (double) frames/elapsedTime;
+        glfwSetWindowTitle(window, (title + " | FPS :- " + std::to_string(fps) + " | Frame time :- " + std::to_string(elapsedTime)).c_str());
+        frames = 0; 
+   }
+
+    frames++;
 }
 
 void GEWindow::Cleanup()
