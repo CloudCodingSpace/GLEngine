@@ -1,6 +1,8 @@
 #pragma once
 
 #include <cstdint>
+#include <glm/glm.hpp>
+#include <vector>
 
 #include "shader/ge_shader.hpp"
 
@@ -15,4 +17,5 @@ public:
     void Cleanup();
 private:
     GEShader* shader;
+    unsigned int vao, vbo, ebo;
 };
