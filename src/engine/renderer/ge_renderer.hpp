@@ -16,6 +16,6 @@ public:
 
     void Cleanup();
 private:
-    GEShader* shader;
+    GEShader shader;
     unsigned int vao, vbo, ebo;
 };

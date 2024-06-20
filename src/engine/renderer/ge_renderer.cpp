@@ -8,7 +8,7 @@ struct Vertex
 
 GERenderer::GERenderer()
 {
-    shader = new GEShader("shaders/default.vert", "shaders/default.frag");
+    shader = GEShader("shaders/default.vert", "shaders/default.frag");
 
     std::vector<Vertex> vertices = {
         {{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f}},
@@ -47,14 +47,14 @@ void GERenderer::Update()
 
 void GERenderer::Render(uint32_t with, uint32_t height)
 {
-    shader->Bind();
+    shader.Bind();
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, 3, GL_UNSIGNED_INT, 0);
     glBindVertexArray(0);
-    shader->Unbind();
+    shader.Unbind();
 }
 
 void GERenderer::Cleanup()
 {
-    shader->Cleanup();
+    shader.Cleanup();
 }

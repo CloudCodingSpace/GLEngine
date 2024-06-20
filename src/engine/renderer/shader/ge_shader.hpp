@@ -10,6 +10,7 @@
 class GEShader
 {
 public:
+    GEShader() = default;
     GEShader(const std::string& vertPath, const std::string& fragPath);
 
     void Bind();
