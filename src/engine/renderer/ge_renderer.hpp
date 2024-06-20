@@ -1,9 +1,8 @@
 #pragma once
 
 #include <cstdint>
-#include <glm/glm.hpp>
-#include <vector>
 
+#include "mesh/ge_mesh.hpp"
 #include "shader/ge_shader.hpp"
 
 class GERenderer
@@ -17,5 +16,5 @@ public:
     void Cleanup();
 private:
     GEShader shader;
-    unsigned int vao, vbo, ebo;
+    GEMesh mesh;
 };
