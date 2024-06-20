@@ -27,6 +27,11 @@ void GEShader::Bind()
     glUseProgram(ID);
 }
 
+void GEShader::PutTexture(const std::string &name, int slot)
+{
+    glUniform1i(glGetUniformLocation(ID, name.c_str()), slot);
+}
+
 void GEShader::Unbind()
 {
     glUseProgram(0);

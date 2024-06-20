@@ -14,6 +14,7 @@ public:
     GEShader(const std::string& vertPath, const std::string& fragPath);
 
     void Bind();
+    void PutTexture(const std::string& name, int slot);
     void Unbind();
 
     void Cleanup();

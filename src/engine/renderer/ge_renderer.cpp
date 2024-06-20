@@ -2,19 +2,18 @@
 
 GERenderer::GERenderer()
 {
-    shader = GEShader("shaders/default.vert", "shaders/default.frag");
-
     std::vector<Vertex> vertices = {
-        {{-0.5f, -0.5f, 0.0f}, {1.0f, 0.0f, 0.0f}},
-        {{0.5f, -0.5f, 0.0f}, {0.0f, 1.0f, 0.0f}},
-        {{0.0f,  0.5f, 0.0f}, {0.0f, 0.0f, 1.0f}}
+        {{-0.5f, -0.5f, 0.0f}, {0.0f, 0.0f}},
+        {{0.5f, -0.5f, 0.0f}, {1.0f, 0.0f}},
+        {{0.0f,  0.5f, 0.0f}, {0.5f, 1.0f}}
     };
 
     std::vector<unsigned int> indices = {
         0, 1, 2
     };
 
-    mesh = GEMesh(vertices, indices);
+    shader = GEShader("shaders/default.vert", "shaders/default.frag");
+    mesh = GEMesh(vertices, indices, "assets/textures/face.png");
 }
 
 void GERenderer::Update()
@@ -25,7 +24,7 @@ void GERenderer::Update()
 void GERenderer::Render(uint32_t with, uint32_t height)
 {
     shader.Bind();
-    mesh.Render();
+    mesh.Render(shader);
     shader.Unbind();
 }
 
