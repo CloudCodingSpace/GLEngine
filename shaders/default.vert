@@ -5,7 +5,9 @@ layout(location = 1) in vec2 aTexCoord;
 
 out vec2 coord;
 
+uniform mat4 pvm;
+
 void main() {
-    gl_Position = vec4(aPos, 1.0);
+    gl_Position = pvm * vec4(aPos, 1.0);
     coord = aTexCoord;
 }

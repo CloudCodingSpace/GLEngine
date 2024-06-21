@@ -32,6 +32,11 @@ void GEShader::PutTexture(const std::string &name, int slot)
     glUniform1i(glGetUniformLocation(ID, name.c_str()), slot);
 }
 
+void GEShader::PutMat4(const std::string &name, glm::mat4 &mat)
+{
+    glUniformMatrix4fv(glGetUniformLocation(ID, name.c_str()), 1, GL_FALSE, glm::value_ptr(mat));
+}
+
 void GEShader::Unbind()
 {
     glUseProgram(0);

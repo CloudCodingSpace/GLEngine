@@ -4,17 +4,20 @@
 
 #include "mesh/ge_mesh.hpp"
 #include "shader/ge_shader.hpp"
+#include "camera/ge_camera.hpp"
 
 class GERenderer
 {
 public:
     GERenderer();
 
-    void Update();
-    void Render(uint32_t with, uint32_t height);
+    void Update(GLFWwindow* window, uint32_t width, uint32_t height);
+    void Render();
 
     void Cleanup();
 private:
     GEShader shader;
     GEMesh mesh;
+    GECamera camera;
+    glm::mat4 pvm;
 };

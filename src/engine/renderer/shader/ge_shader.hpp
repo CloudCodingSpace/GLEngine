@@ -6,6 +6,8 @@
 #include <stdexcept>
 
 #include <glad/glad.h>
+#include <glm/glm.hpp>
+#include <glm/gtc/type_ptr.hpp>
 
 class GEShader
 {
@@ -15,6 +17,7 @@ public:
 
     void Bind();
     void PutTexture(const std::string& name, int slot);
+    void PutMat4(const std::string& name, glm::mat4& mat);
     void Unbind();
 
     void Cleanup();

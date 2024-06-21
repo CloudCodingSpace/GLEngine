@@ -12,8 +12,8 @@ void GLEngine::Run()
     window->SetClearColor(0.5f, 0.5f, 0.5f, 0.5f);
     while(!window->IsCloseButtonPressed()) {
         window->Clear();
-        renderer->Update();
-        renderer->Render(window->GetWidth(), window->GetHeight());
+        renderer->Update(window->GetHandle(), window->GetWidth(), window->GetHeight());
+        renderer->Render();
         window->Update();
     }
 }
