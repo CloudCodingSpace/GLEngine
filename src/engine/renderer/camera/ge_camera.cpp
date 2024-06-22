@@ -9,11 +9,12 @@ GECamera::GECamera()
     far = 100.0f;
     lastX = 0.0f;
     lastY = 0.0f;
+    firstClick = true;
 
     view = glm::mat4(1.0f);
     proj = glm::mat4(1.0f);
-    pos = glm::vec3(0.0f, 0.0f, -2.0f);
-    dir = glm::vec3(0.0f, 0.0f, 3.0f);
+    pos = glm::vec3(0.0f, 0.0f, 3.0f);
+    dir = glm::vec3(0.0f, 0.0f, -1.0f);
     up = glm::vec3(0.0f, 1.0f, 0.0f);
 }
 

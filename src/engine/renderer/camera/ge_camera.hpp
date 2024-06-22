@@ -28,5 +28,5 @@ private:
     float fov, near, far, yaw, pitch, lastX, lastY;
     const float speed = 0.005f;
     const float sensitivity = 0.1f;
-    bool firstClick = true;
+    bool firstClick;
 };
